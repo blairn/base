@@ -1,7 +1,11 @@
 <script>
+  import { userPromise } from '$lib/security.js'
+  // import d3format from 'd3-format'
+  // console.log(d3format)
 </script>
 
-<main>
-	<h1>Hello world!</h1>
-</main>
-
+{#await userPromise()}
+  loading user
+{:then user}
+  hi {JSON.stringify(user)}
+{/await}
